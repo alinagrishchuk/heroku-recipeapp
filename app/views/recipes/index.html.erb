@@ -1,0 +1,17 @@
+<div class="row">
+  <% @recipes.each do |recipe| %>
+    <div class="col-md-4 col-sm-6 col-xs-12" >
+      <%= link_to :action => :show, :id => recipe["recipe_id"] do %>
+          <div class="recipes-item">
+            <div class="recipes-item-rate">
+              <% (recipe["social_rank"]/20).ceil.times do %>
+                <span class="glyphicon glyphicon-star" ></span>
+              <% end %>
+            </div>
+            <%= image_tag recipe["image_url"],class: "img-responsive" %>
+            <span class="recipes-item-title" ><%= recipe["title"].capitalize %></span>
+          </div>
+      <% end %>
+    </div>
+  <%end%>
+</div>

@@ -1,0 +1,41 @@
+<div class="page-header">
+  <h1><%= @recipe["title"].capitalize %></h1>
+</div>
+
+<div class="row">
+
+  <div class="col-md-5 col-sm-6 col-xs-12" >
+    <h1><small>Rate:</small></h1>
+    <div >
+      <h3><small>
+        <% (@recipe["social_rank"]/20).ceil.times do %>
+          <span class="glyphicon glyphicon-star" ></span>
+        <% end %>
+      </small></h3>
+    </div>
+    <h1><small>Directions:</small></h1>
+    <h3><small><%= link_to @recipe["publisher"], @recipe["publisher_url"] %></small></h3>
+    <div>
+      <h1><small>Ingredients:</small></h1>
+      <ol class="rectangle-list">
+        <% @recipe["ingredients"].each do |line| %>
+            <li><%= line %></li>
+        <% end %>
+      </ol>
+
+    </div>
+  </div>
+  <div class="col-md-7 col-sm-6 col-xs-12" >
+
+    <h1><small>Photo:</small></h1>
+    <div class= "recipe-item-img">
+       <%= image_tag @recipe["image_url"], class:'img-responsive' %>
+    </div>
+    <h1><small>Description:</small></h1>
+    <h3><small><%= link_to "link", @recipe["source_url"] %></small></h3>
+
+  </div>
+
+
+</div>
+
