@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @search_id = params[:id] #||"47024"#
+    @search_id = params[:id] ||"47024"
     @recipe = Recipe.get_recipe(@search_id)
   end
 end
